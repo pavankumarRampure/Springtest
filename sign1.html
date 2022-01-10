@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+
+    <style>
+        .head{
+           font-size: 30px;
+           font-weight: bold;
+           border-bottom: 0.5px solid gray;
+           margin-bottom: 20px;
+           color: brown;
+        }
+        body{
+            margin: 10px;
+        }
+        .container{
+            width: 40%;
+            padding: 10px;
+           border: 2px solid black;
+           border-radius: 10px;
+           margin-top: 20px;
+          
+        }
+        .btn {
+               margin-left: 200px;
+        }
+    </style>
+
+    <script>
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="head">Sign Up</div>
+        <form action="" onsubmit="return validate()">
+            <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input type="text" class="form-control" id="fname" >
+                <span id="fn" class="text-danger " ></span>
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input type="text" class="form-control" id="lname">
+                <span id="ln" class="text-danger" ></span>
+              </div>
+            <div class="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" class="form-control" id="email">
+              <span id="el" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" class="form-control" id="mobile">
+                <span id="mb" class="text-danger" ></span>
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob">
+                <span id="db" class="text-danger" ></span>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd">
+                <span id="pw" class="text-danger" ></span>
+              </div>
+            <div class="form-group">
+              <label for="Lid">LoginId:</label>
+              <input type="text" class="form-control" id="lid">
+              <span id="ld" class="text-danger" ></span>
+            </div>
+             
+              
+                    <input class="form-check-input" type="radio" id="check1" name="option1" value="something" >
+                    <label class="form-check-label">Admin</label>
+                  
+                    <input class="form-check-input" type="radio" id="check2" name="option1" value="something" >
+                    <label class="form-check-label">Customer</label>
+                  
+    
+                    <input class="form-check-input" type="radio" id="check3" name="option1" value="something" >
+                    <label class="form-check-label">Guest</label>
+                  
+           
+            <button type="submit" class="btn btn-success"> Submit</button>
+          </form>
+
+          <div>
+              <div><span>Already Sign up ??</span><a href="./d1.html">Login</a></div>
+            
+          </div>
+    </div>
+    <script>
+      
+    
+      function validate()
+      {
+        var returnval= true;
+        
+        var name=document.getElementById("fname").value;
+        var lname=document.getElementById("lname").value;
+        var email=document.getElementById("email").value;
+        var mobile=document.getElementById("mobile").value;
+        var dob=document.getElementById("dob").value;
+        var pwd=document.getElementById("pwd").value;
+        var lid=document.getElementById("lid").value;
+        if(name == "" )
+        {
+         document.getElementById("fn").innerHTML=" * please fill the first name";
+         returnval= false;
+        }
+        if( !isNaN(name))
+        {
+          document.getElementById("fn").innerHTML="* pleases name must be character ";
+          returnval= false;
+        }
+        
+        // if(name.length<5 )
+        // {
+        //   document.getElementById("fn").innerHTML="* pleases name length is must between 5 to 15 ";
+        //   returnval= false;
+        // }
+      
+        if(lname == "")
+        {
+         document.getElementById("ln").innerHTML="* please fill the last name";
+         returnval= false;
+        }
+        // if(name.length<5)
+        // {
+        //   document.getElementById("ln").innerHTML="* pleases name length is must between 5 to 15 ";
+        //   returnval= false;
+        // }
+        if( !isNaN(name))
+        {
+          document.getElementById("ln").innerHTML="* pleases name must be character ";
+          returnval= false;
+        }
+        if(email == "")
+        {
+         document.getElementById("el").innerHTML=" * please fill the email";
+         returnval= false;
+        }
+        if(email.indexOf("@") <=0){
+          document.getElementById("el").innerHTML=" * please email is invalid";
+          returnval= false;
+          
+        }
+        if((email.charAt(email.length-4) !=".")&& (email.charAt(email.length-3) ==".")){
+          document.getElementById("el").innerHTML=" * please email is invalid";
+          returnval= false;
+          
+        }
+        if(mobile == "")
+        {
+         document.getElementById("mb").innerHTML=" * please fill the mobile";
+         returnval= false;
+        }
+        if(isNaN(mobile))
+        {
+         document.getElementById("mb").innerHTML=" * please fill 10 digit mobile number";
+         returnval= false;
+        }
+        if((mobile.trim()).length!=10)
+        {
+         document.getElementById("mb").innerHTML=" *  please fill valid Mobile number";
+         returnval= false;
+        }
+        if(dob == "")
+        {
+         document.getElementById("db").innerHTML=" * please fill the date of birth";
+         returnval= false;        }
+        if(pwd == "")
+        {
+         document.getElementById("pw").innerHTML=" * please fill the  password";
+         returnval= false;
+        }
+        if(pwd.length>=5 || pwd.length<15)
+        {
+          document.getElementById("pw").innerHTML="* pleases enter the strong passowrd";
+          returnval= false;
+        }
+      
+        
+        if(lid == "")
+        {
+         document.getElementById("ld").innerHTML=" * please fill the login Id";
+         returnval= false;
+        }
+        
+          return returnval;
+        
+       
+         
+      }
+    </script>
+</body>
+</html>
